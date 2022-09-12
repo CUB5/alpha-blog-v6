@@ -1,0 +1,34 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar{
+  background-color: #c6c5c5 !important;
+}
+
+#brandid{
+  font-size: 0.3in;
+  font-weight: bold;
+}
+
+#home-container{
+  margin-top: 30px;
+}
+
+.jumbotron {
+  background-image: asset-url('jumbotron.jpg');
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+html,
+body {
+  height: 100%;
+}
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
