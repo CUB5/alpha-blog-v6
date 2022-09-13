@@ -6,7 +6,7 @@
 
 <div class="container">
   <% @articles.each do |article| %>
-    <div class="mt-4">
+    <div class="mt-4 mb-4">
       <div class="card">
         <div class="card-header">
           Por CUB5
@@ -17,7 +17,7 @@
             <a><%= link_to 'Edit', edit_article_path(article),
               :class => "btn btn-primary" %></a>
             <a><%= link_to 'Delete', article_path(article), 
-            :class => "btn btn-primary", method: :delete, data: { confirm: "Are you sure?"} %></a>
+            :class => "btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %></a>
         </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(article.created_at) %> ago, 

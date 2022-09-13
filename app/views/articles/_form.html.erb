@@ -1,27 +1,19 @@
 <div class="container mt-4">
-  <% if @article.errors.any? %>
-    <h2>Los siguientes errores se produjeron al guardar el articulo</h2>
-    <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <div class="row justify-content-center">
     <div class="col-10">
+      <%= render 'shared/errors' %>
       <%= form_with(model: @article, class:"shadow p-3 mb-4 bg-white rounded", local: true) do |f| %>
         <div class="form-group row">
           <%= f.label :title, class: "col-2 col-form-label" %><br>
           <div class="col-10">
-            <%= f.text_field :title, class: "form-control", placeholder: "Titulo" %>
+            <%= f.text_field :title, class: "form-control", placeholder: "Titulo del artículo" %>
           </div>
         </div>
 
         <div class="form-group row">
           <%= f.label :description, class: "col-2 col-form-label" %><br>
           <div class="col-10">
-            <%= f.text_area :description, rows: 5, class: "form-control", placeholder: "Descripción" %>
+            <%= f.text_area :description, rows: 5, class: "form-control", placeholder: "Descripción del artículo" %>
           </div>
         </div>
 
@@ -31,6 +23,6 @@
         
       <% end %>
     </div>
-    <%= link_to 'Volver a la lista de articulos', articles_path %></p>
+      <%= link_to 'Volver a la lista de articulos', articles_path %></p>
   </div>
 </div>

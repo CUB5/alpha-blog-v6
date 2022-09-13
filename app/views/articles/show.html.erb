@@ -1,8 +1,27 @@
-<h1>Pagina de Articulos</h1>
+<div class="container mt-4">
+  <h1><%= @article.title %></h1>
+</div>
 
-<p>Titulo: <%= @article.title %></p>
-<p>Contenido: <%= @article.description %></p>
-
-<p><%= link_to 'Edit', edit_article_path(@article) %> | 
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "¿Estas seguro?"} %> | 
-<%= link_to 'Volver a la lista de articulos', articles_path %></p>
+<div class="container">
+    <div class="mt-4">
+      <div class="card">
+        <div class="card-header font-italic text-center ">
+          Por CUB5
+        </div>
+        <div class="card-body">
+            <div class="card-text"><%= simple_format(@article.description) %></div>
+            <a><%= link_to 'Edit', edit_article_path(@article),
+              :class => "btn btn-primary" %></a>
+            <a><%= link_to 'Delete', article_path(@article), 
+            :class => "btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %></a>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
+          edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+      <%= link_to 'Volver a la lista de articulos', articles_path %></p>  
+    </div>  
+</div>
