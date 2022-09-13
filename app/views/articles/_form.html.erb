@@ -1,26 +1,36 @@
-<% if @article.errors.any? %>
-  <h2>Los siguientes errores se produjeron al guardar el articulo</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container mt-4">
+  <% if @article.errors.any? %>
+    <h2>Los siguientes errores se produjeron al guardar el articulo</h2>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_with(model: @article, local: true) do |f| %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_with(model: @article, class:"shadow p-3 mb-4 bg-white rounded", local: true) do |f| %>
+        <div class="form-group row">
+          <%= f.label :title, class: "col-2 col-form-label" %><br>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control", placeholder: "Titulo" %>
+          </div>
+        </div>
 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+        <div class="form-group row">
+          <%= f.label :description, class: "col-2 col-form-label" %><br>
+          <div class="col-10">
+            <%= f.text_area :description, rows: 5, class: "form-control", placeholder: "Descripción" %>
+          </div>
+        </div>
 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+        <div class="form-group row justify-content-center mt-4">
+          <%= f.submit class: "btn btn-primary"%>
+        </div>
+        
+      <% end %>
+    </div>
+    <%= link_to 'Volver a la lista de articulos', articles_path %></p>
+  </div>
+</div>

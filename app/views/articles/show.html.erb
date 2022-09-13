@@ -4,5 +4,5 @@
 <p>Contenido: <%= @article.description %></p>
 
 <p><%= link_to 'Edit', edit_article_path(@article) %> | 
-<%= link_to 'Delete', article_path(@article), data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %> | 
+<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "¿Estas seguro?"} %> | 
 <%= link_to 'Volver a la lista de articulos', articles_path %></p>
