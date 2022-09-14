@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= render 'shared/errors' %>
+      <%= render 'shared/errors', obj: @article %>
       <%= form_with(model: @article, class:"shadow p-3 mb-4 bg-white rounded", local: true) do |f| %>
         <div class="form-group row">
           <%= f.label :title, class: "col-2 col-form-label" %><br>
@@ -23,6 +23,8 @@
         
       <% end %>
     </div>
-      <%= link_to 'Volver a la lista de articulos', articles_path %></p>
+    <div class="mb-3">
+      <%= link_to 'Volver a la lista de articulos', articles_path %>
+    </div>
   </div>
 </div>
