@@ -32,3 +32,44 @@ body {
 #sticky-footer {
   flex-shrink: none;
 }
+
+/* Paginacion */
+
+.pagination {
+  text-align: center;
+}
+.pagination a, .pagination span, .pagination em {
+  padding: 6px 12px; 
+}
+.pagination .disabled {
+  color: #aaaaaa; 
+}
+.pagination .current {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+.pagination a {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  color: #0063dc;
+  text-decoration: none; 
+}
+.pagination a:hover, .pagination a:focus {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+.pagination .page_info {
+  color: #aaaaaa;
+}
+.pagination .previous_page, .pagination .next_page {
+  border-radius: 5px;
+}
+
+.pagination .previous_page {
+  margin-right: 1em; 
+}
+.pagination .next_page {
+  margin-left: 1em; 
+}
+

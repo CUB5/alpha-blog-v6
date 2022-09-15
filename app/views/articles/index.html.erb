@@ -4,4 +4,12 @@
       :class => "btn btn-primary" %></p>
 </div>
 
+<div class="pagination justify-content-md-center">
+  <%= will_paginate @articles%>
+</div>
+
 <%= render 'article' %>
+
+<div class="mb-5 pagination justify-content-md-center">
+  <%= will_paginate @articles%>
+</div>
