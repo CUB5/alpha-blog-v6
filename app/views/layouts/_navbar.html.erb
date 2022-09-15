@@ -9,22 +9,22 @@
       <li class="nav-item active">
         <%= link_to 'Inicio', root_path, class: 'nav-link'%>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Artículos', articles_path, class: 'nav-link'%>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Articulos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Artículos', articles_path, class: 'dropdown-item'%>
+          <%= link_to 'Blogueros', users_path, class: 'dropdown-item'%>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Crear nuevo articulo', new_article_path,
+              :class => "dropdown-item" %>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
       </li>
       <li class="nav-item">
         <%= link_to 'Acerca de', about_path, class: 'nav-link'%>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Desplegable
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
