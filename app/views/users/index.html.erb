@@ -1,5 +1,9 @@
 <h1 class="text-center mt-4">Blogeros</h1>
 
+<div class="mt-5 pagination justify-content-md-center">
+  <%= will_paginate @users %>
+</div>
+
 <div class="container">
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
@@ -27,5 +31,8 @@
   <% end %>
 </div>
 
+<div class="mb-5 pagination justify-content-md-center">
+  <%= will_paginate @users %>
+</div>
 
 

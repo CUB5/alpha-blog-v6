@@ -5,9 +5,19 @@
 <% if logged_in? && current_user == @user %>
   <div class="text-center mt-4">
   <%= link_to "Edita tu perfil", edit_user_path(@user), class: "btn btn-outline-info" %>
+  <%= link_to "Elimina tu perfil", user_path(@user), class: "btn btn-outline-danger", 
+      method: :delete, data: { confirm: '¿Estas seguro de eliminar tu cuenta?'} %>
   </div>
 <% end %>
 
 <h3 class="text-center mt-4"> Artículos</h3>
 
+<div class="mt-5 pagination justify-content-md-center">
+  <%= will_paginate @articles %>
+</div>
+
 <%= render 'articles/article'%>
+
+<div class="mb-5 pagination justify-content-md-center">
+  <%= will_paginate @articles %>
+</div>
