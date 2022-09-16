@@ -8,10 +8,12 @@
         <div class="card-body">
           <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
             <p class="card-text"><%= truncate(article.description, lenght: 50) %></p>
-            <a><%= link_to 'Edit', edit_article_path(article),
-              :class => "btn btn-primary" %></a>
-            <a><%= link_to 'Delete', article_path(article), 
-            :class => "btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %></a>
+            <% if logged_in? && current_user == article.user %>
+              <a><%= link_to 'Edit', edit_article_path(article),
+                :class => "btn btn-primary" %></a>
+              <a><%= link_to 'Delete', article_path(article), 
+              :class => "btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %></a>
+            <% end %>
         </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(article.created_at) %> ago, 

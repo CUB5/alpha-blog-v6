@@ -16,24 +16,34 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'Artículos', articles_path, class: 'dropdown-item'%>
           <%= link_to 'Blogueros', users_path, class: 'dropdown-item'%>
-          <a class="dropdown-item" href="#">Another action</a>
+          <% if logged_in? %>
           <div class="dropdown-divider"></div>
           <%= link_to 'Crear nuevo articulo', new_article_path,
               :class => "dropdown-item" %>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <% end %>
         </div>
       </li>
       <li class="nav-item">
         <%= link_to 'Acerca de', about_path, class: 'nav-link'%>
       </li>
 
-      <% if session[:user_id] != nil %>
-        <li class="nav-item">
-          <%= link_to 'Cerrar Sesión', logout_path, class: 'nav-link', method: :delete%>
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Perfil', user_path(current_user), class: 'dropdown-item' %>
+          <div class="dropdown-divider"></div>
+            <%= link_to 'Cerrar Sesión', logout_path, class: 'dropdown-item', method: :delete %>
+          </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'Iniciar Sesión', login_path, class: 'nav-link'%>
+          <%= link_to 'Iniciar Sesión', login_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Registrarse', signup_path, class: 'nav-link' %>
         </li>
       <% end %>
 

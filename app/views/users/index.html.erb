@@ -14,7 +14,9 @@
             </h5>
             <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
             <%= link_to 'View profile', user, class: "btn btn-primary" %>
-            <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-primary" %>
+            <% if logged_in? && current_user == user %>
+              <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-primary" %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
