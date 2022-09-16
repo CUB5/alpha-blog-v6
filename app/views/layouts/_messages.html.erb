@@ -1,14 +1,18 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-10">
-<% flash.each do |name, msg| %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <%= msg %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+      <% flash.each do |name, msg| %>
+        <% if name == 'notice' %>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <% else %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <% end %>
+          <%= msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
 </div>
