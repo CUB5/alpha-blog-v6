@@ -26,6 +26,17 @@
       <li class="nav-item">
         <%= link_to 'Acerca de', about_path, class: 'nav-link'%>
       </li>
+
+      <% if session[:user_id] != nil %>
+        <li class="nav-item">
+          <%= link_to 'Cerrar Sesión', logout_path, class: 'nav-link', method: :delete%>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Iniciar Sesión', login_path, class: 'nav-link'%>
+        </li>
+      <% end %>
+
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
